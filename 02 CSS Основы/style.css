@@ -1,0 +1,30 @@
+/* стили по ID 100 */
+#head-1 {
+    background-color: chartreuse;
+}
+
+/* стили по классу  010 */
+.head {
+    background-color: black;
+}
+
+/* стили по названию тега 001 */
+h1 {
+    color: brown;
+    background-color: aliceblue;
+}
+
+.users {
+    display: flex;
+    gap: 10px;
+    background-color: antiquewhite;
+    font-size: 20px;
+}
+
+.users .user {
+    background-color: aquamarine;
+}
+
+.users .user h2 {
+    background-color: cornsilk;
+}
