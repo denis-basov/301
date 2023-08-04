@@ -1,3 +1,7 @@
+/* * {
+    margin: 0;
+} */
+
 /* стили по ID 100 */
 #head-1 {
     background-color: chartreuse;
@@ -11,20 +15,126 @@
 /* стили по названию тега 001 */
 h1 {
     color: brown;
-    background-color: aliceblue;
+    background: rgb(247, 204, 204);
+    background: radial-gradient(circle, rgba(247, 204, 204, 1) 0%, rgba(72, 74, 163, 1) 21%, rgba(251, 226, 189, 1) 46%, rgba(186, 253, 181, 1) 71%, rgba(255, 252, 172, 1) 100%);
+    border-bottom: 3px solid green;
+    border-right: 5px dashed rgb(128, 19, 0);
+    border-left: 7px dotted rgb(11, 14, 216);
+    border-top: 2px dashed rgb(179, 8, 202);
+
+    margin: auto;
+    /* margin: 30px 20px 40px 10px; */
+    /* margin: 10px 20px; */
+    /* margin: 20px 30px 10px; */
+    /* margin-left: 50px; */
+    /* margin: 0 0 0 50px; */
+    /* margin: 0;
+    margin-left: 50px; */
+
+    padding: 20px;
+
+    max-width: 1440px;
+    height: 200px;
+
 }
 
 .users {
     display: flex;
-    gap: 10px;
+    /* gap: 10px; */
     background-color: antiquewhite;
     font-size: 20px;
+    margin: 20px 40px;
+
+    font-family: 'Nunito', sans-serif;
 }
 
 .users .user {
-    background-color: aquamarine;
+    background-image: url('images/back-1.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    border: 3px solid rgb(146, 146, 247);
+    border-radius: 8px;
+    margin-right: 20px;
+
+    width: 300px;
+}
+
+.users .user img {
+    /* 100% от ширины родителя*/
+    width: 100%;
+    /* border: 3px solid blue; */
+    border-radius: 50%;
 }
 
 .users .user h2 {
     background-color: cornsilk;
+}
+
+.users .user p {
+    color: orange;
+}
+
+.users .user-1 {
+    border: 4px solid red;
+    border-radius: 12px;
+}
+
+.head-2 {
+    background: rgb(247, 204, 204);
+    background: linear-gradient(86deg, rgba(247, 204, 204, 1) 0%, rgba(72, 74, 163, 1) 21%, rgba(251, 226, 189, 1) 46%, rgba(186, 253, 181, 1) 71%, rgba(255, 252, 172, 1) 100%);
+    padding: 20px;
+
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+.head-2:hover {
+    background-color: bisque;
+}
+
+.head-2 .head-span {
+    font-style: italic;
+    color: rgb(211, 32, 0);
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.a-link {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    background-color: aqua;
+    padding: 10px;
+    margin: 10px;
+    display: inline-block;
+}
+
+/* стили при наведении мышью */
+.a-link:hover {
+    background-color: aquamarine;
+    color: rgb(128, 19, 0);
+    text-decoration: none;
+}
+
+/* при нажатии */
+.a-link:active {
+    background-color: rgb(2, 205, 137);
+}
+
+.ul-list {
+    background-color: antiquewhite;
+    margin: 20px;
+    padding: 20px;
+    list-style-type: space-counter;
+}
+
+.hidden {
+    display: none;
 }
