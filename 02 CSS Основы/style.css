@@ -1,5 +1,10 @@
 /* * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+/* body {
+    background-color: aqua;
 } */
 
 /* стили по ID 100 */
@@ -137,4 +142,90 @@ h1 {
 
 .hidden {
     display: none;
+}
+
+/* абсолютное позиционирование */
+.abs-container {
+    width: 500px;
+    height: 500px;
+    background-color: rgb(248, 202, 85);
+    position: relative;
+    padding: 10px;
+}
+
+.abs-container .abs-child {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(127, 180, 255, 0.755);
+
+    position: absolute;
+    /* top: 200px;
+    left: 250px; */
+    /* right: -25px;
+    top: -25px; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* переход */
+.transition {
+    box-sizing: border-box;
+    background-color: aliceblue;
+    width: 700px;
+    padding: 10px;
+    margin: 20px;
+    color: black;
+    border: 5px solid transparent;
+
+    transition: all 0.5s;
+}
+
+.transition:hover {
+    background-color: rgb(134, 197, 253);
+    color: rgb(162, 61, 112);
+    border: 5px solid brown;
+}
+
+/* анимация */
+
+.animation {
+    width: 100px;
+    height: 100px;
+    /* background-color: aquamarine; */
+    background-image: url("images/1.jpg");
+    background-size: cover;
+    position: relative;
+
+    /* анимация */
+    /* animation-name: my-animation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+    animation-timing-function: ease-out; */
+}
+
+/* ключевые точки анимации */
+@keyframes my-animation {
+    0% {
+        background-image: url("images/1.jpg");
+        left: 0px;
+        top: 0px;
+        /* width: 10%; */
+    }
+
+    50% {
+        background-image: url("images/3.jpg");
+        left: 200px;
+        top: 100px;
+        transform: rotate(360deg);
+        /* width: 50%; */
+    }
+
+    100% {
+        background-image: url("images/1.jpg");
+        left: 0px;
+        top: 0px;
+        /* width: 10%; */
+    }
 }
