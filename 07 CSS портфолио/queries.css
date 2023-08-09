@@ -1,0 +1,29 @@
+/* файл для медиазапросов */
+
+/* для ширины экрана не более 1350п */
+@media(max-width: 1350px) {
+    body {
+        background-size: 70%;
+    }
+}
+
+/* для ширины экрана не более 1050п */
+@media(max-width: 1050px) {
+    body {
+        background-size: 60%;
+    }
+}
+
+/* для ширины экрана не более 950п */
+@media(max-width: 950px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 3rem;
+    }
+
+    main p {
+        background-color: rgba(81, 81, 81, 0.637);
+        padding: 1rem;
+    }
+}

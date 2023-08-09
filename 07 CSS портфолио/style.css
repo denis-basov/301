@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Alata', sans-serif;
+    font-size: 62.5%;
+    color: #E8E8E8;
+}
+
+body {
+    height: 100vh;
+    background-color: #221A37;
+    background-image: url('images/background-image.png');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding: 1rem;
+}
+
+
+/*************************************************************************/
+/****************************** header ***********************************/
+/*************************************************************************/
+header {
+    max-width: 144rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 6rem;
+}
+
+header .logo {
+    font-size: 2.7rem;
+}
+
+header nav {
+    display: flex;
+    padding: 1rem 3.6rem;
+    gap: 3.2rem;
+}
+
+header nav a {
+    display: inline-block;
+    padding: 1.2rem 2rem;
+    font-size: 1.4rem;
+    color: #E8E8E8;
+    text-decoration: none;
+    transition: all 0.5s;
+}
+
+header nav a:hover {
+    background-color: #402166;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 2.6rem;
+}
+
+/*************************************************************************/
+/****************************** main *************************************/
+/*************************************************************************/
+
+main {
+    max-width: 144rem;
+    padding: 2rem 12rem;
+    display: grid;
+    grid-template-columns: 50rem;
+    justify-content: end;
+    font-size: 1.6rem;
+    row-gap: 3rem;
+}
+
+main .title .top {
+    color: #5D3974;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+main .title h1 {
+    font-size: 5.2rem;
+    line-height: 1;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+main .title .bottom {
+    color: #575757;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+main p {
+    color: #C0C0C0;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+/*************************************************************************/
+/****************************** resume ***********************************/
+/*************************************************************************/
+
+.resume {
+    grid-template-columns: 15rem 0.2rem 35rem;
+    column-gap: 2rem;
+}
+
+/* .resume .resume-date {
+    padding-right: 3rem;
+    border-right: 2px solid #A60AC7;
+} */
+
+.resume .resume-date h2 {
+    color: #5D3974;
+    text-align: right;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.resume .resume-date p {
+    color: #575757;
+    text-align: right;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.resume .resume-border {
+    border-radius: 1rem;
+    background: #A60AC7;
+    box-shadow: 0rem 0.4rem 0.4rem 0rem #A60AC7;
+}
+
+.resume .resume-info {
+    padding: 1rem;
+}
+
+.resume .resume-info h1 {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 158.5%;
+    margin-bottom: 1rem;
+}
+
+.resume .resume-info ul {
+    font-size: 1rem;
+    font-weight: bold;
+    padding-left: 2rem;
+}
+
+.resume .resume-info ul li {
+    list-style-type: disc;
+    line-height: 158.5%;
+}
+
+
+/*************************************************************************/
+/****************************** gallery **********************************/
+/*************************************************************************/
+.gallery {
+    grid-template-columns: 22.3rem 22.3rem;
+    gap: 2rem;
+}
+
+.gallery .gallery-img img {
+    width: 100%;
+    border-radius: 10px;
+    /* Purple Glow Light */
+    box-shadow: 0px 0px 10px 0px rgba(166, 10, 199, 0.30);
+}

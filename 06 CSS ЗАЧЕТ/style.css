@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Alata', sans-serif;
+    /* 1rem = 16px = 100% */
+    /* 1rem = 10px = 62.5% */
+    font-size: 62.5%;
+    color: #E8E8E8;
+}
+
+body {
+    padding: 1rem;
+    height: 100vh;
+    background-image: url('BackgroundImage.png');
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    background-color: #221A37;
+    /* background-size: 50%; */
+}
+
+/* header */
+header {
+    max-width: 144rem;
+    padding: 6rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+header .logo {
+    font-size: 2.7rem;
+}
+
+header nav {
+    font-size: 1.6rem;
+    padding: 1rem 3.6rem;
+    display: flex;
+    gap: 3.2rem;
+}
+
+header nav a {
+    display: inline-block;
+    padding: 1.2rem 2rem;
+    color: #E8E8E8;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.4s;
+    /* text-shadow: 0px 4px 4px rgb(44, 255, 2); */
+}
+
+header nav a:hover {
+    border-radius: 10px;
+    border: 1px solid #5D3974;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    text-shadow: 0px 4px 10px #A60AC7;
+}
+
+/* main */
+
+main {
+    max-width: 144rem;
+    padding: 2rem 12rem;
+    display: grid;
+    grid-template-columns: 50rem;
+    justify-content: end;
+    font-size: 1.6rem;
+    row-gap: 3rem;
+}
+
+main .title .top {
+    color: #5D3974;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+main .title h2 {
+    /* Text Shadow */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* PageTitle Font */
+    font-size: 5.2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 95%;
+}
+
+main .title .bottom {
+    color: #575757;
+    /* Text Shadow */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* SubTile Font */
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+main p {
+    color: #C0C0C0;
+    /* Text Shadow */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* Paragraph Font */
+    font-style: normal;
+    font-weight: 700;
+    line-height: 158.5%;
+    /* 22.19px */
+}
+
+/* медиазапросы - адаптация под разные экраны */
+/* при ширине экрана менее 1300п*/
+@media(max-width: 1300px) {
+    html {
+        font-size: 58%;
+    }
+
+    body {
+        background-size: 90%;
+    }
+}
+
+/* при ширине экрана менее 1200п*/
+@media(max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+
+    body {
+        background-size: 90%;
+    }
+
+    header {
+        padding: 3rem 0;
+    }
+
+    main {
+        padding: 2rem 4rem;
+    }
+}
