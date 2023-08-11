@@ -1,0 +1,36 @@
+.rating-5 {
+    color: green;
+}
+
+.rating-4 {
+    color: yellow;
+}
+
+.rating-3 {
+    color: orange;
+}
+
+.rating-2 {
+    color: rgb(255, 120, 0);
+}
+
+.rating-1 {
+    color: red;
+}
+
+.rating-0 {
+    color: blue;
+}
+
+.wrong-rating {
+    background-color: red;
+    color: white;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
