@@ -1,0 +1,13 @@
+.pets {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    background-color: aliceblue;
+    padding: 20px;
+}
+
+.pets span {
+    background-color: antiquewhite;
+    padding: 10px;
+    border-radius: 7px;
+}
