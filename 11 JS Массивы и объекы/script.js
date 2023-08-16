@@ -344,11 +344,17 @@ let student = {
   "house number": 33,
   street: "Chertanovskaya",
 };
-console.log(student);
-console.log(student.firstName);
-console.log(student.lastName);
-console.log(student.street);
-console.log(student["house number"]);
+// console.log(student);
+// console.log(student.firstName);
+// console.log(student.lastName);
+// console.log(student["street"]);
+// console.log(student["house number"]);
+
+// let prop = "lastName";
+// console.log(student[prop]);
+
+// student.age -= 1;
+// console.log(student);
 
 // let pets = document.querySelector("#pets");
 // console.dir(pets);
@@ -358,14 +364,29 @@ let users = [
   {
     fName: "Иван",
     lName: "Иванов",
+    hobbies: ["Спать", "Гулять", "Читать"],
   },
   {
     fName: "Анна",
     lName: "Иванова",
+    hobbies: ["Спать", "Читать"],
   },
   {
-    fName: "Сергей",
-    lName: "Сидоров",
+    fName: "Ирина",
+    lName: "Сидорова",
+    hobbies: ["Гулять", "Читать"],
   },
 ];
-//console.log(users);
+// console.log(users);
+// console.log(users[0].lName);
+// console.log(users[1].lName);
+// console.log(users[2].lName);
+// console.log(users[0].hobbies[2]);
+
+// let fNames = `<p>${users[0].fName}</p>
+//               <p>${users[1].fName}</p>
+//               <p>${users[2].fName}</p>`;
+// console.log(fNames);
+// document.write(fNames);
+
+// users.forEach((user) => console.log(`Имя: ${user.fName}. Фамилия: ${user.lName}`));
