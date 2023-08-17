@@ -1,0 +1,29 @@
+.cats {
+    max-width: 1200px;
+    background-color: aliceblue;
+    margin: 0 auto;
+    padding: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.cats .cat {
+    padding: 20px;
+    font-size: 20px;
+    background-color: rgb(209, 221, 232);
+}
+
+.cats .cat img {
+    width: 100%;
+}
+
+.cats .cat span {
+    color: rgb(129, 33, 33);
+}
+
+.cats .cat .cat-owner {
+    border: 1px solid rgb(153, 178, 185);
+    padding-left: 15px;
+}

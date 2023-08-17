@@ -236,18 +236,109 @@ for (let row of data) {
 console.log(sum);*/
 
 // nodeList
-let listItems = document.querySelectorAll("#list li");
-let listItemsArr = [...listItems]; // формируем массив на основе nodeList
-console.log(listItemsArr);
-console.log([1, 2, 3]);
+// let listItems = document.querySelectorAll("#list li");
+// let listItemsArr = [...listItems]; // формируем массив на основе nodeList
+// console.log(listItemsArr);
+// console.log([1, 2, 3]);
 
 // for...in
-let student = {
-  firstName: "Igor",
-  lastName: "Pronkin",
-  age: 34,
-  phone: "8-916-341-38-35",
-  city: "Moscow",
-  "house number": 33,
-  street: "Chertanovskaya",
-};
+// let student = {
+//   firstName: "Igor",
+//   lastName: "Pronkin",
+//   age: 34,
+//   phone: "8-916-341-38-35",
+//   city: "Moscow",
+//   "house number": 33,
+//   street: "Chertanovskaya",
+//   key: 3782639,
+// };
+
+// for (let key in student) {
+//   console.log(`Ключ: ${key}. Значение: ${student[key]}`);
+// }
+
+// for (let key in student) {
+//   console.log(`<p>${key}: ${student[key]}</p>`);
+// }
+
+// let studentStr = `
+//   <div class="student">
+//     <h2>Имя: <span>${student.firstName}</span></h2>
+//     <h3>Фамилия: <span>${student.lastName}</span></h3>
+//     <p>Возраст: <span>${student.age}</span></p>
+//   </div>
+// `;
+// console.log(studentStr);
+
+// вывести данные в документ
+let cats = [
+  {
+    name: "Ллойд",
+    color: "Черный",
+    age: 12,
+    avatar: "img/1.jpg",
+    owner: {
+      name: "Василий",
+      city: "Москва",
+      phones: [333, 543, 123, 87876],
+    },
+  },
+  {
+    name: "Барсик",
+    color: "Серый",
+    age: 6,
+    avatar: "img/2.jpg",
+    owner: {
+      name: "Анна",
+      city: "Москва",
+      phones: [523, 653, 532],
+    },
+  },
+  {
+    name: "Мурка",
+    color: "Белый",
+    age: 2,
+    avatar: "img/3.jpg",
+    owner: {
+      name: "Инна",
+      city: "Самара",
+      phones: [187, 466, 643],
+    },
+  },
+  {
+    name: "Пусик",
+    color: "Серый",
+    age: 5,
+    avatar: "img/4.jpg",
+    owner: {
+      name: "Николай",
+      city: "Москва",
+      phones: [345, 678, 543],
+    },
+  },
+];
+
+let catsStr = "";
+for (let cat of cats) {
+  catsStr += `
+    <div class="cat">
+      <img src="${cat.avatar}" alt="Кот: ${cat.name}">
+      <h2>Кличка: <span>${cat.name}</span></h2>
+      <p>Цвет шерсти: <span>${cat.color}</span></p>
+      <p>Возраст: <span>${cat.age}</span></p>
+      <div class="cat-owner">
+        <h3>Данные о владельце:</h3>
+        <p>Имя: <span>${cat.owner.name}</span></p>
+        <p>Город проживания: <span>${cat.owner.city}</span></p>
+        <h4>Телефоны для связи:</h4>
+        <ol class="phones">
+          <li>${cat.owner.phones.join("</li><li>")}</li>
+        </ol>
+      </div>
+    </div>
+  `;
+}
+
+// получаем со страницы контейнер и вставляем строку в документ
+let catsContainer = document.querySelector("#cats-container");
+catsContainer.insertAdjacentHTML("beforeend", catsStr);
