@@ -52,9 +52,9 @@ function sayHello(name) {
   greet.textContent = `Привет, ${name}!!!`;
 }
 
-fName.addEventListener("blur", function () {
+let checkInput = function () {
   // получаем знчение из поля ввода
-  let value = fName.value;
+  let value = this.value;
 
   // если value не пустая строка, вызываем функцию
   // псевдоложные значения '', 0, NaN, null, undefined
@@ -67,7 +67,11 @@ fName.addEventListener("blur", function () {
 
   // очищаем поле ввода
   fName.value = "";
-});
+
+}
+
+fName.addEventListener("blur", checkInput);
+lName.addEventListener("blur", checkInput());
 */
 
 // return
