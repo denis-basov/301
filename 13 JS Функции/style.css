@@ -1,0 +1,14 @@
+.bill {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: aliceblue;
+    display: flex;
+    gap: 20px;
+}
+
+.bill .bill-info {
+    background-color: rgb(227, 240, 252);
+    padding: 15px;
+    border-radius: 10px;
+}
