@@ -303,60 +303,60 @@ console.log(map1);
 // let catsPrice = cats.map((cat) => cat.price * cat.qty);
 // console.log(catsPrice);
 
-let cats = [
-  {
-    name: "Ллойд",
-    color: "Черный",
-    age: 12,
-    avatar: "img/1.jpg",
-    qty: 3,
-    price: 1000,
-    owner: {
-      name: "Василий",
-      city: "Москва",
-      phones: [333, 543, 123, 87876],
-    },
-  },
-  {
-    name: "Барсик",
-    color: "Серый",
-    age: 6,
-    avatar: "img/2.jpg",
-    qty: 1,
-    price: 2000,
-    owner: {
-      name: "Анна",
-      city: "Москва",
-      phones: [523, 653, 532],
-    },
-  },
-  {
-    name: "Мурка",
-    color: "Белый",
-    age: 2,
-    avatar: "img/3.jpg",
-    qty: 4,
-    price: 1500,
-    owner: {
-      name: "Инна",
-      city: "Самара",
-      phones: [187, 466, 643],
-    },
-  },
-  {
-    name: "Пусик",
-    color: "Серый",
-    age: 5,
-    avatar: "img/4.jpg",
-    qty: 5,
-    price: 3000,
-    owner: {
-      name: "Николай",
-      city: "Москва",
-      phones: [345, 678, 543],
-    },
-  },
-];
+// let cats = [
+//   {
+//     name: "Ллойд",
+//     color: "Черный",
+//     age: 12,
+//     avatar: "img/1.jpg",
+//     qty: 3,
+//     price: 1000,
+//     owner: {
+//       name: "Василий",
+//       city: "Москва",
+//       phones: [333, 543, 123, 87876],
+//     },
+//   },
+//   {
+//     name: "Барсик",
+//     color: "Серый",
+//     age: 6,
+//     avatar: "img/2.jpg",
+//     qty: 1,
+//     price: 2000,
+//     owner: {
+//       name: "Анна",
+//       city: "Москва",
+//       phones: [523, 653, 532],
+//     },
+//   },
+//   {
+//     name: "Мурка",
+//     color: "Белый",
+//     age: 2,
+//     avatar: "img/3.jpg",
+//     qty: 4,
+//     price: 1500,
+//     owner: {
+//       name: "Инна",
+//       city: "Самара",
+//       phones: [187, 466, 643],
+//     },
+//   },
+//   {
+//     name: "Пусик",
+//     color: "Серый",
+//     age: 5,
+//     avatar: "img/4.jpg",
+//     qty: 5,
+//     price: 3000,
+//     owner: {
+//       name: "Николай",
+//       city: "Москва",
+//       phones: [345, 678, 543],
+//     },
+//   },
+// ];
 
 // find
 // найти первого попавшегося кота стоимостью 2000
@@ -385,9 +385,9 @@ let cats = [
 // console.log(newCats);
 
 // reduce
-let fruits = ["Киви", "Ананас", "Кокос", "Апельсин", "Банан", "Яблоко"];
-let numbers = [1, 5, 4, 2, 6, 8, 3, 1, 5, 6, 8];
-let pets = ["cat", "dog", "bat", "mouse", "pig", "goat", "sheep", "cow", "chicken"];
+// let fruits = ["Киви", "Ананас", "Кокос", "Апельсин", "Банан", "Яблоко"];
+// let numbers = [1, 5, 4, 2, 6, 8, 3, 1, 5, 6, 8];
+// let pets = ["cat", "dog", "bat", "mouse", "pig", "goat", "sheep", "cow", "chicken"];
 
 // сумма элементов
 // 1 - for
@@ -407,7 +407,110 @@ let pets = ["cat", "dog", "bat", "mouse", "pig", "goat", "sheep", "cow", "chicke
 // console.log(sum);
 
 // начальное значение
-let sum = numbers.reduce(function (acc, currVal) {
-  return acc + currVal;
-}, 100);
-console.log(sum);
+// let sum = numbers.reduce(function (acc, currVal) {
+//   return acc + currVal;
+// }, 100);
+// console.log(sum);
+
+// собираем массив в строку
+// let petsStr = pets.reduce(function (accum, pet) {
+//   return `${accum} ${pet}`;
+// }, "Список моих питомцев:");
+// console.log(petsStr);
+
+// let petsStr = pets.reduce(function (accum, pet) {
+//   return `${accum}, ${pet}`;
+// });
+// console.log(petsStr);
+
+// let petsStr = pets.reduce(function (accum, pet, i) {
+//   // если первый элемент массива
+//   if (i === 0) {
+//     // объединяем элементы без запятой и пробела
+//     return `${accum}${pet}`;
+//   }
+//   return `${accum}, ${pet}`;
+// }, "");
+// console.log(petsStr);
+
+// получение строки с кличками котов
+// let catNames = cats.reduce(function (acc, cat) {
+//   return `${acc} ${cat.name}`;
+// }, "Мои кошки и коты:");
+
+// let catNames = cats.reduce((acc, cat) => `${acc} ${cat.name}`, "Мои кошки и коты:");
+
+// console.log(catNames);
+
+/*
+1 задание
+Получите сколько денег мы можем выручить если продадим всех котов и кошек*/
+
+//1
+// let revenue = cats.reduce(function (acc, price) {
+//   return acc + price.price * price.qty;
+// }, 0);
+// console.log(revenue);
+
+//2
+// let catsPrices = cats.reduce(function (totalPrice, cat) {
+//   return totalPrice + cat.qty * cat.price;
+// }, 0);
+// console.log(catsPrices);
+
+//3
+// let revenue = cats.reduce((acc, price) => acc + price.price * price.qty, 0);
+// console.log(revenue);
+
+// нахождение максимума
+// let maxNumber = numbers.reduce(function (max, num) {
+//   // if (max > num) {
+//   //   return max;
+//   // } else {
+//   //   return num;
+//   // }
+
+//   return max > num ? max : num;
+// });
+// console.log(maxNumber);
+
+// let maxNumber = numbers.reduce((max, num) => (max > num ? max : num));
+// console.log(maxNumber);
+
+//sort
+// numbers.sort();
+// console.log(numbers);
+
+// let numbers = [1, 4, 2, 5, 6, 8, 3, 1, 5, 6, 8, 11, 12, 13];
+// numbers.sort(function (a, b) {
+//   return a - b;
+// });
+// numbers.sort((a, b) => b - a);
+// console.log(numbers);
+
+// сорт по возрасту по увеличению
+// cats.sort(function (cat1, cat2) {
+//   return cat1.age - cat2.age;
+// });
+// console.log(cats);
+
+// сорт по кличке
+// cats.sort(function (a, b) {
+//   if (a.name > b.name) {
+//     return 1;
+//   }
+//   if (a.name < b.name) {
+//     return -1;
+//   }
+//   // a должно быть равным b
+//   return 0;
+// });
+// console.log(cats);
+
+// сорт по кличке
+// cats.sort(function (a, b) {
+//   return a.name - b.name;
+// });
+// console.log(cats);
+
+// console.log("a" - "b");

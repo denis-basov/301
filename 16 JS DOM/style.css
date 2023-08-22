@@ -1,0 +1,18 @@
+.head {
+    color: brown;
+}
+
+.users {
+    display: flex;
+    gap: 20px;
+}
+
+.users .user {
+    padding: 15px;
+    background-color: aliceblue;
+    width: 300px;
+}
+
+.users .user img {
+    width: 100%;
+}
