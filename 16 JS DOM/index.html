@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 class="head" id="head_1">DOM</h1>
+    <button id="press-btn">button</button>
+    <h1 class="head" id="head_1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla, quod.</h1>
     <h2 class="head" id="head_2">JS</h2>
 
     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat, ea?</p>
@@ -27,6 +28,7 @@
         <p>Возраст: 22</p>
         <p>Страна проживания: Россия</p>
         <p>Хобби: Гулять</p>
+        <button class="add-to-friends">В друзья</button>
       </div>
       <!-- пользователь 2 -->
       <div class="user user-2">
@@ -35,6 +37,7 @@
         <p>Возраст: 21</p>
         <p>Страна проживания: Россия</p>
         <p>Хобби: Вязать</p>
+        <button class="add-to-friends">В друзья</button>
       </div>
       <!-- пользователь 3 -->
       <div class="user user-3">
@@ -43,9 +46,30 @@
         <p>Возраст: 20</p>
         <p>Страна проживания: Россия</p>
         <p>Хобби: Варить борщ</p>
+        <button class="add-to-friends">В друзья</button>
       </div>
     </div>
 
+    <form>
+      <div>
+        <label>Имя:</label>
+        <input type="text" id="first-name" name="first-name" />
+        <span class="input-error"></span>
+      </div>
+
+      <div>
+        <label for="last-name">Фамилия:</label>
+        <input type="text" id="last-name" name="last-name" />
+        <span id="last-name-error" class="input-error"></span>
+      </div>
+
+      <div>
+        <label for="last-name">Электронная почта:</label>
+        <input type="email" id="email" name="email" />
+      </div>
+
+      <input type="submit" value="Войти" />
+    </form>
     <script src="script.js"></script>
   </body>
 </html>
