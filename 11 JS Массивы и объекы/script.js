@@ -76,7 +76,7 @@ let arrOutput = document.querySelector("#arr-output");
 // выводим первоначальный массив
 arrOutput.textContent = fruits.join(", ");
 
-// обрабатываю клики по кнопке
+// обрабатываю клики по кнопке 
 pushBtn.addEventListener("click", function () {
   // получаем введенное в input значение в переменную
   let value = pushItem.value;

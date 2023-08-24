@@ -324,3 +324,215 @@ addBtns.forEach(function (button) {
     button.textContent === "В друзья" ? (button.textContent = "Удалить") : (button.textContent = "В друзья");
   });
 });
+
+/**
+ * reduce
+ */
+const votes = ["y", "y", "n", "y", "n", "y", "n", "y", "n", "n", "n", "y", "y"];
+
+// ** 1. На основе массива votes получите объект в двумя свойствами, в которых должно быть посчитано
+// сколько y и сколько n: {y: 25, n:44}
+
+// for...of
+// let votesCount = {
+//   y: 0,
+//   n: 0,
+// };
+// for (let vote of votes) {
+//   if (vote === "y") {
+//     votesCount.y++;
+//   } else {
+//     votesCount.n++;
+//   }
+// }
+// console.log(votesCount);
+
+//reduce
+// let votesCount = votes.reduce(
+//   function (totalObj, vote) {
+//     // if (vote === "y") {
+//     //   totalObj.y++;
+//     // } else {
+//     //   totalObj.n++;
+//     // }
+//     vote === "y" ? totalObj.y++ : totalObj.n++;
+//     return totalObj;
+//   },
+//   { y: 0, n: 0 }
+// );
+// console.log(votesCount);
+
+const books = [
+  {
+    title: "Good Omens",
+    authors: ["Terry Pratchett", "Neil Gaiman"],
+    rating: 4.25,
+    genres: ["fiction", "fantasy"],
+  },
+  {
+    title: "Changing My Mind",
+    authors: ["Zadie Smith"],
+    rating: 3.83,
+    genres: ["nonfiction", "essays"],
+  },
+  {
+    title: "Bone: The Complete Edition",
+    authors: ["Jeff Smith"],
+    rating: 4.42,
+    genres: ["fiction", "graphic novel", "fantasy"],
+  },
+  {
+    title: "American Gods",
+    authors: ["Neil Gaiman"],
+    rating: 4.11,
+    genres: ["fiction", "fantasy"],
+  },
+  {
+    title: "A Gentleman in Moscow",
+    authors: ["Amor Towles"],
+    rating: 4.36,
+    genres: ["fiction", "historical fiction"],
+  },
+  {
+    title: "The Name of the Wind",
+    authors: ["Patrick Rothfuss"],
+    rating: 4.54,
+    genres: ["fiction", "fantasy"],
+  },
+  {
+    title: "The Overstory",
+    authors: ["Richard Powers"],
+    rating: 4.19,
+    genres: ["fiction", "short stories"],
+  },
+  {
+    title: "A Truly Horrible Book",
+    authors: ["Xavier Time"],
+    rating: 2.18,
+    genres: ["fiction", "garbage"],
+  },
+  {
+    title: "The Way of Kings",
+    authors: ["Brandon Sanderson"],
+    rating: 4.65,
+    genres: ["fantasy", "epic"],
+  },
+  {
+    title: "Lord of the flies",
+    authors: ["William Golding"],
+    rating: 3.67,
+    genres: ["fiction"],
+  },
+];
+
+// 2. *** Получите объект с массивами, в которых сгруппируйте книги по рейтингу.
+// Массивы должны быть для рейтинга от 0 до 1, от 1 до 2, от 2 до 3, от 3 до 4 и от 4 до 5
+// и в каждом массиве долдны находиться книги с рейтингом, который входит в диапазон.
+// Например, если у книги рейтинг 3.5, он попадает в массив с рейтингами от 3 до 4
+// To group books by rating:
+
+/*
+2:[{…}]
+3:[{…}, {…}]
+4:[{…}, {…}, {…}, {…}, {…}, {…}, {…}]
+*/
+/*
+let booksGroups = books.reduce(
+  function (booksObj, book) {
+    if (book.rating >= 0 && book.rating < 1) {
+      booksObj.group1 = books;
+    } else if (book.rating >= 1 && book.rating < 2) {
+      booksObj.group2.push(book);
+    } else if (book.rating >= 2 && book.rating < 3) {
+      booksObj.group3.push(book);
+    } else if (book.rating >= 3 && book.rating < 4) {
+      booksObj.group4.push(book);
+    } else if (book.rating >= 4 && book.rating < 5) {
+      booksObj.group5.push(book);
+    }
+
+    // возвращаем объект
+    return booksObj;
+  },
+  { group1: [], group2: [], group3: [], group4: [], group5: [] }
+);
+console.log(booksGroups);
+*/
+
+// createElement
+// let par = document.querySelector('p');
+
+// создаем элементы
+let par = document.createElement("p");
+let div = document.createElement("div");
+
+// добавляем в параграф текст
+par.textContent = "Hello, summer";
+
+// вставляем параграф в div
+div.innerHTML = par.outerHTML;
+
+// задаем атрибуты ID и класса
+div.setAttribute("id", "news-list");
+div.setAttribute("class", "news-list container");
+// div.setAttribute("class", "test");
+
+// считываем атрибуты
+//console.log(div.getAttribute("class"));
+
+// добавляем параграфу класс
+div.children[0].setAttribute("class", "par");
+
+//console.log(div);
+// вставка элемента в документ
+// 1. получаем элемент из документа,
+// относительно которого будем вставлять созданный элемент на страницу
+let section1 = document.querySelector("#section-1");
+// 2. Вставляем DIV внутрь секции последним потомком
+// section1.appendChild(div);
+// section1.appendChild(par);
+
+// let cloneDiv = div.cloneNode(true);
+// section1.appendChild(cloneDiv);
+
+section1.insertAdjacentElement("beforeend", div);
+
+// формирование разметки и вставка в документ
+let div1 = `<div id="news-list" class="news-list container">
+              <p class="par">Hello, summer</p>
+            </div>`;
+section1.insertAdjacentHTML("beforeend", div1);
+
+/**
+ * динамическое добавление поля для ввода
+ */
+let addInput = document.querySelector("#add-input"); // кнопка
+let inputPhoto1 = document.querySelector("#photo-1"); // поле для вставки картинки
+let inputParent = inputPhoto1.parentElement; // получаем родителя поля ввода
+let counterId = 1; // счетчик для ID
+
+/**
+ * добавляем обработчик события по клику на кнопку
+ */
+addInput.addEventListener("click", function (event) {
+  counterId++; // увеличиваем значение счетчика ID
+
+  let cloneDiv = inputParent.cloneNode(true); // клонируем полученный div
+  cloneDiv.children[1].value = ""; // очищаем значение value у скопированного инпута
+  cloneDiv.children[1].id = `photo-${counterId}`; // задаем новый ID полю ввода
+
+  // вставка склонированного элемента в документ предыдущим соседом перед существующей кнопкой
+  addInput.parentElement.insertAdjacentElement("beforebegin", cloneDiv);
+
+  event.preventDefault(); // отменяем стандартное поведение
+});
+
+// this и объект
+// let user = {
+//   fName: "Ivan",
+//   lName: "Petrov",
+//   getData() {
+//     console.log(`Hello, ${this.fName} ${this.lName}`);
+//   },
+// };
+// user.getData();
