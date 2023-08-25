@@ -1,0 +1,32 @@
+.countries {
+    max-width: 1200px;
+    background-color: aliceblue;
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.countries .country {
+    width: 300px;
+    background-color: antiquewhite;
+    padding: 20px;
+}
+
+.countries .country span {
+    color: rgb(145, 38, 38);
+    font-size: 20px;
+}
+
+.countries .country .images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.countries .country .images img {
+    width: 45%;
+}
