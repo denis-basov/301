@@ -1,0 +1,21 @@
+header {
+    background-color: antiquewhite;
+    padding: 20px;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    background-color: aliceblue;
+}
+
+body {
+    background-color: beige;
+    margin: 10px;
+}
+
+footer {
+    padding: 20px;
+    background-color: rgb(136, 141, 139);
+}

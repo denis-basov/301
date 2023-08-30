@@ -1,9 +1,26 @@
-.user{
+.user, .student {
     background-color: aliceblue;
     max-width: 500px;
 
 }
 
-.user img{
+.user img {
     width: 100%;
+}
+
+section.users {
+    max-width: 1000px;
+    background-color: antiquewhite;
+    margin: 0 auto;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+section.users .user {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: aliceblue;
 }
