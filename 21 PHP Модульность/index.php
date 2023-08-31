@@ -1,4 +1,8 @@
-<?php require 'components/header.php'; ?>
+<?php
+$title = 'Главная страница';
+
+require 'components/header.php';
+?>
 
 <div class="main-page">
     <h1>Главная страница</h1>

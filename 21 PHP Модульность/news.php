@@ -1,4 +1,7 @@
-<?php require 'components/header.php'; ?>
+<?php
+$title = 'Новости';
+require 'components/header.php';
+?>
 
 <div class="news-list">
     <div class="news-item">

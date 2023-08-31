@@ -19,3 +19,22 @@ footer {
     padding: 20px;
     background-color: rgb(136, 141, 139);
 }
+
+.cars{
+    background-color: blanchedalmond;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.cars .car{
+    padding: 10px;
+    background-color: #c9c3c3;
+}
+
+.cars .car img{
+    width: 100%;
+}

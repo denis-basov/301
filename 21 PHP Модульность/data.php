@@ -15,6 +15,7 @@ $cars = [
     ]
 ];
 
+
 function debug($value)
 {
     echo '<pre>';
