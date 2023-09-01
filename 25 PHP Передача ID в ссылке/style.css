@@ -1,0 +1,50 @@
+.cars{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.cars .car{
+    padding: 20px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+}
+
+.cars .car.car-4{
+    background-color: cornsilk;
+}
+
+.cars .car img{
+    width: 100%;
+}
+
+.car-item{
+    max-width: 1200px;
+    background-color: cornsilk;
+    margin: 0 auto;
+    padding: 40px;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.car-item img{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.car-item .car-info{
+    background-color: #f7ffff;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.car-item .car-info p span{
+    color: brown;
+    font-weight: bold;
+}
