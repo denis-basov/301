@@ -107,3 +107,4 @@ HTML;
 }
 $vasilek = new ExDogs('Василек', 7, 15, 'Коричневый', 'Пудель');
 //$vasilek->getSummary();
+echo "<a href='dogs.php'>Вывод</a>";
