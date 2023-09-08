@@ -4,7 +4,7 @@
 class DBConnect
 {
     // статические свойства
-    private static $dbName = '301_books';
+    private static $dbName = '301_mini-blog';
     private static $dbHost = 'localhost';
     private static $dbLogin = 'root';
     private static $dbPassword = '';
