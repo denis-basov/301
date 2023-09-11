@@ -50,3 +50,22 @@
 .bg-info{
     background-color: darkgoldenrod;
 }
+
+.news-item{
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 30px;
+    font-size: 22px;
+}
+
+.news-item .news-info{
+    padding: 15px;
+}
+.news-item .news-info img{
+    width: 100%;
+}
+
+.news-item .author-info img{
+    width: 100%;
+}

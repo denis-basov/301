@@ -17,6 +17,9 @@ $query = "SELECT news.title, text, add_date, image,
 $statement = $pdo->query($query);
 $newsItem = $statement->fetch();
 
+// заменяем \r\n\r\n на параграфы
+$newsItem['text'] = str_replace("\r\n\r\n", '</p><p>', $newsItem['text']);
+
 //print_r($newsItem);
 ?>
 <!doctype html>
@@ -45,6 +48,7 @@ $newsItem = $statement->fetch();
                 <p><?=$newsItem['short_info']?></p>
             </div>
         </div>
+        <a href="news.php">К списку новостей</a>
     </div>
 </body>
 </html>

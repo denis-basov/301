@@ -1,0 +1,37 @@
+.users{
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: aliceblue;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.users .user{
+    padding: 20px;
+    background-color: #e2ecfd;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.users .user img{
+    width: 100%;
+}
+
+.users .user p span{
+    color: brown;
+}
+
+form.add-user{
+    background-color: cornsilk;
+    max-width: 800px;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+form.add-user div{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 150px 300px;
+}
