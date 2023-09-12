@@ -35,3 +35,7 @@ form.add-user div{
     display: grid;
     grid-template-columns: 150px 300px;
 }
+
+.error-msg{
+    color: red;
+}
