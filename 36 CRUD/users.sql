@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Сен 12 2023 г., 12:28
+-- Время создания: Сен 14 2023 г., 08:39
 -- Версия сервера: 10.4.28-MariaDB
 -- Версия PHP: 8.2.4
 
@@ -42,10 +42,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `firstName`, `lastName`, `login`, `email`, `password`, `avatar`) VALUES
-(2, 'Петр', 'Сидоров', 'sidorov999', 'sidorov222@test.com', 'asdqawr4534t', 'images/dafault.jpg'),
+(2, 'Петр', 'Сидоров', 'sidorov111', 'sidorov222@test.com', '$2y$10$S5amMGzzhvnafa6HS6blHOtPjQElEV7qyNuuV2p5tldapR875fJAW', 'images/1694673363_joseph-pearson-827XUhVSp8M-unsplash.jpg'),
 (3, 'Анна', 'Иванова', 'anna333', 'anna333@test.ru', '$2y$10$BpcjDumRM5uknFzszf3e0ukhIs5.5pTr4Ohl6aYmo6A0e89YmUx0i', 'images/1694500656_christopher-campbell-rDEOVtE7vOs-unsplash (1).jpg'),
 (12, 'Ирина', 'Петрова', 'petrovaIrana111', 'petrovaIrana111@test.ru', '$2y$10$9gEKhtqP/ayT7LzbNjiOkelchPHo4XekCnJSUIR9HG0APIHp2415a', 'images/1694503667_kelly-sikkema-JN0SUcTOig0-unsplash (2).jpg'),
-(13, 'Сергей', 'Петров', 'petrov333', 'petrov333@test.yy', '$2y$10$Jlw1K14Kr7C8mdr7SrMlEei1d9/F9qu4cXi6jan3vEwA1PKkD0DMS', 'images/1694506260_ethan-hoover-0YHIlxeCuhg-unsplash.jpg');
+(13, 'Сергей', 'Петров', 'petrov333', 'petrov333@test.com', '$2y$10$27LtV.ttZhekXrcjpooJke0RQYkf86K8TEVXafA.r1qKrWP8NxwnC', 'images/1694506260_ethan-hoover-0YHIlxeCuhg-unsplash.jpg');
 
 --
 -- Индексы сохранённых таблиц

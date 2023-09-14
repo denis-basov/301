@@ -31,7 +31,6 @@ $statement = $pdo->query($query);
 if(!$statement)die('Упс, что-то пошло не так');
 
 
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -118,7 +117,7 @@ HTML;
             // дополнительно хешируем пароль
             $password = password_hash(htmlspecialchars(trim($_POST['password'])), PASSWORD_DEFAULT);
 
-            // формируем путь к картинке? куда будем загружать аватар
+            // формируем путь к картинке, куда будем загружать аватар
             $avatarPath = 'images/'.time().'_'.$avatar['name'];
             //print_r($avatarPath);
             // перемещаем картинку в нужную папку
@@ -236,8 +235,8 @@ HTML;
      * получем данные из формы и обрабатываем
      */
     if(isset($_POST['action']) && $_POST['action'] === 'Обновить') {
-        print_r($_POST);
-        print_r($_FILES);
+//        print_r($_POST);
+//        print_r($_FILES);
         // проверяем на пустоту
         if( !empty($_POST['firstName']) &&
             !empty($_POST['lastName']) &&
@@ -256,6 +255,12 @@ HTML;
 
             // получаем картинку
             $avatar = $_FILES['avatar'];
+            //print_r($avatar);
+
+            // проверка на размер картинки
+//            if($avatar['size'] > 500000){
+//                echo 'Картинка слишком большая';
+//            }
 
             // проверяем наличие картинки
             if(!$avatar['size']){ // если картинка не приложена
@@ -266,21 +271,33 @@ HTML;
                 $statement = $pdo->prepare($query);
                 $statement->execute([$firstName, $lastName, $login, $email, $password, $userId]);
             }else{// если новая картинка приложена
-                // формируем путь для новой картинки
-                // перемещаем новую картинку в нужную папку
+
+                $avatarPath = 'images/'.time().'_'.$avatar['name'];// формируем путь для новой картинки
+                move_uploaded_file($avatar['tmp_name'], $avatarPath);// перемещаем новую картинку в нужную папку
+
                 // получаем путь к старой картинке
+                $query = "SELECT avatar FROM users WHERE id = ?";
+                $statement = $pdo->prepare($query);
+                $statement->execute([$userId]);
+                $oldAvatarPath = $statement->fetch()['avatar'];
+
                 // удаляем старую картинку
+                if(file_exists($oldAvatarPath) && $oldAvatarPath !== 'images/dafault.jpg'){
+                    unlink($oldAvatarPath);
+                }
+
                 // записываем в БД все данные включая путь к новой картинке
+                $query = "UPDATE users
+                          SET firstName=?, lastName=?, login=?, email=?, password=?, avatar=?
+                          WHERE id=?;";
+                $statement = $pdo->prepare($query);
+                $statement->execute([$firstName, $lastName, $login, $email, $password, $avatarPath, $userId]);
+
             }
             // перезагружаем страницу
             header('Location: /');
 
 
-
-            // обновляем данные в БД
-//        $query = "UPDATE users
-//                    SET firstName = $firstName, lastName = $lastName...
-//                    WHERE id = 3";
         }else{ // если какое-то поле не заполнено
             echo '<h3 class="error-msg">Заполните все поля</h3>';
         }
