@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="css/aos.css" />
 
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/my-style.css">
 </head>
 <body>
 <div class="site-wrap">

@@ -4,7 +4,6 @@ require 'DBConnect.php';
 
 class News
 {
-
     /**
      * метод для получения новостей для главной страницы
      */
@@ -57,6 +56,54 @@ class News
                   category_id = category.id
                   ORDER BY add_date DESC 
                   LIMIT $start, $limit;";
-        return $pdo->query($query)->fetchAll();
+        // получаем список новостей
+        $newsList = $pdo->query($query)->fetchAll();
+
+        // получаем количество новостей в таблице
+        $query = "SELECT COUNT(*) AS count
+                  FROM news;";
+        $count = $pdo->query($query)->fetch()["count"];
+
+        // возвращаем массив с новостями и количеством
+        return ["newsList" => $newsList, "newsCount" => $count];
+    }
+
+    /**
+     * метод для получения данных об одной новости по ID
+     */
+    public static function getNewsItemById($newsId){
+        $pdo = DBConnect::getConnection();
+
+        $query = "SELECT news.id AS newsId, news.title AS newsTitle, text, add_date, image,
+                    authors.id AS authorId, first_name, last_name, avatar, short_info,
+                    category.id AS categoryId,  translation AS category, class_name AS category_class_name
+                  FROM news, authors, category
+                  WHERE author_id = authors.id AND 
+                  category_id = category.id AND
+                  news.id = ?";
+        $statement = $pdo->prepare($query);
+        $statement->execute([$newsId]);
+        return $statement->fetch();
+    }
+
+    /**
+     * получение нескольких новостей по ID категории
+     */
+    public static function getLimitNewsListByCategoryId($categoryId, $limit){
+        $pdo = DBConnect::getConnection();
+
+        $query = "SELECT id, title, add_date, image
+                  FROM news
+                  WHERE category_id = :category_id AND 
+                        id != 'id текущей новости'
+                  ORDER BY rand()
+                  LIMIT :limit;";
+
+        $statement = $pdo->prepare($query);
+        $statement->bindParam(':category_id', $categoryId, PDO::PARAM_INT);
+        $statement->bindParam(':limit', $limit, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetchAll();
     }
 }
