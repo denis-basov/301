@@ -1,6 +1,6 @@
 <?php
 // модель для работы с новостями
-require 'DBConnect.php';
+require_once 'DBConnect.php';
 
 class News
 {
@@ -87,23 +87,51 @@ class News
     }
 
     /**
-     * получение нескольких новостей по ID категории
+     * получение нескольких новостей по ID категории исключая новость по ID
      */
-    public static function getLimitNewsListByCategoryId($categoryId, $limit){
+    public static function getLimitNewsListByCategoryId($categoryId, $limit, $newsId){
         $pdo = DBConnect::getConnection();
 
         $query = "SELECT id, title, add_date, image
                   FROM news
-                  WHERE category_id = :category_id AND 
-                        id != 'id текущей новости'
+                  WHERE category_id = :category_id 
+                    AND id != :newsId
                   ORDER BY rand()
                   LIMIT :limit;";
 
         $statement = $pdo->prepare($query);
         $statement->bindParam(':category_id', $categoryId, PDO::PARAM_INT);
+        $statement->bindParam(':newsId', $newsId, PDO::PARAM_INT);
         $statement->bindParam(':limit', $limit, PDO::PARAM_INT);
         $statement->execute();
 
         return $statement->fetchAll();
     }
+
+    /**
+     * Метод для получения количества новостей по каждой категории
+     */
+    public static function getNewsCountByCategories(){
+        $pdo = DBConnect::getConnection();
+
+        $query = "SELECT category_id, translation AS category, COUNT(news.id) AS count
+                    FROM news, category
+                    WHERE category_id = category.id
+                    GROUP BY category_id;";
+        return $pdo->query($query)->fetchAll();
+    }
+
+    /**
+     * метод для получения количества новостей по авторам
+     */
+    public static function getNewsCountByAuthors(){
+        $pdo = DBConnect::getConnection();
+
+        $query = "SELECT author_id, first_name, last_name, COUNT(news.id) AS count
+                    FROM news, authors
+                    WHERE author_id = authors.id
+                    GROUP BY author_id;";
+        return $pdo->query($query)->fetchAll();
+    }
+
 }

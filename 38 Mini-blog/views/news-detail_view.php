@@ -34,130 +34,44 @@
 
                     <!-- комментарии -->
                     <div class="pt-5">
-                        <h3 class="mb-5">6 Comments</h3>
+                        <!-- если комменты есть, выводим количество -->
+                        <?php if($commentsCount):?>
+                            <h3 class="mb-5">Количество комментариев: <?=$commentsCount?></h3>
+                        <?php else:?>
+                            <h3 class="mb-5">Пока комментариев нет, вы можете оставить первый комментарий!</h3>
+                        <?php endif;?>
+
                         <ul class="comment-list">
+                            <?php foreach ($comments as $comment):?>
                             <li class="comment">
                                 <div class="vcard">
-                                    <img src="images/person_1.jpg" alt="Image placeholder" />
+                                    <img src="<?=$comment["image"]?>" alt="<?=$comment['first_name'].' '.$comment['last_name']?>" />
                                 </div>
                                 <div class="comment-body">
-                                    <h3>Jean Doe</h3>
-                                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure!
-                                        Quam voluptas earum impedit necessitatibus, nihil?
-                                    </p>
-                                    <p><a href="#" class="reply rounded">Reply</a></p>
+                                    <a href="<?=$comment['user_id']?>">
+                                        <h3><?=$comment['first_name'].' '.$comment['last_name']?></h3>
+                                    </a>
+                                    <div class="meta"><?=$comment['add_date']?></div>
+                                    <p><?=$comment['comment']?></p>
                                 </div>
                             </li>
-
-                            <li class="comment">
-                                <div class="vcard">
-                                    <img src="images/person_1.jpg" alt="Image placeholder" />
-                                </div>
-                                <div class="comment-body">
-                                    <h3>Jean Doe</h3>
-                                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure!
-                                        Quam voluptas earum impedit necessitatibus, nihil?
-                                    </p>
-                                    <p><a href="#" class="reply rounded">Reply</a></p>
-                                </div>
-
-                                <ul class="children">
-                                    <li class="comment">
-                                        <div class="vcard">
-                                            <img src="images/person_1.jpg" alt="Image placeholder" />
-                                        </div>
-                                        <div class="comment-body">
-                                            <h3>Jean Doe</h3>
-                                            <div class="meta">January 9, 2018 at 2:21pm</div>
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste
-                                                iure! Quam voluptas earum impedit necessitatibus, nihil?
-                                            </p>
-                                            <p><a href="#" class="reply rounded">Reply</a></p>
-                                        </div>
-
-                                        <ul class="children">
-                                            <li class="comment">
-                                                <div class="vcard">
-                                                    <img src="images/person_1.jpg" alt="Image placeholder" />
-                                                </div>
-                                                <div class="comment-body">
-                                                    <h3>Jean Doe</h3>
-                                                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente
-                                                        iste iure! Quam voluptas earum impedit necessitatibus, nihil?
-                                                    </p>
-                                                    <p><a href="#" class="reply rounded">Reply</a></p>
-                                                </div>
-
-                                                <ul class="children">
-                                                    <li class="comment">
-                                                        <div class="vcard">
-                                                            <img src="images/person_1.jpg" alt="Image placeholder" />
-                                                        </div>
-                                                        <div class="comment-body">
-                                                            <h3>Jean Doe</h3>
-                                                            <div class="meta">January 9, 2018 at 2:21pm</div>
-                                                            <p>
-                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente
-                                                                iste iure! Quam voluptas earum impedit necessitatibus, nihil?
-                                                            </p>
-                                                            <p><a href="#" class="reply rounded">Reply</a></p>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="comment">
-                                <div class="vcard">
-                                    <img src="images/person_1.jpg" alt="Image placeholder" />
-                                </div>
-                                <div class="comment-body">
-                                    <h3>Jean Doe</h3>
-                                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure!
-                                        Quam voluptas earum impedit necessitatibus, nihil?
-                                    </p>
-                                    <p><a href="#" class="reply rounded">Reply</a></p>
-                                </div>
-                            </li>
+                            <?php endforeach;?>
                         </ul>
                         <!-- END comment-list -->
 
                         <div class="comment-form-wrap pt-5">
-                            <h3 class="mb-5">Leave a comment</h3>
-                            <form action="#" class="p-5 bg-light">
-                                <div class="form-group">
-                                    <label for="name">Name *</label>
-                                    <input type="text" class="form-control" id="name" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email *</label>
-                                    <input type="email" class="form-control" id="email" />
-                                </div>
-                                <div class="form-group">
-                                    <label for="website">Website</label>
-                                    <input type="url" class="form-control" id="website" />
-                                </div>
+                            <h3 class="mb-5">Добавить комментарий</h3>
 
+                            <form action="#" method="POST" class="p-5 bg-light">
                                 <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                                    <label for="message">Текст комментария:</label>
+                                    <textarea name="comment" id="message" cols="30" rows="10" class="form-control"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" value="Post Comment" class="btn btn-primary" />
+                                    <input type="submit" value="Добавить" class="btn btn-primary" />
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -202,7 +116,7 @@
                                     <a href="news_detail.php?newsId=<?=$newsItem['id']?>">
                                         <img src="<?=$newsItem['image']?>" alt="<?=$newsItem['title']?>" class="mr-4" />
                                         <div class="text">
-                                            <h4><?=$newsItem['title']?> ID:<?=$newsItem['id']?></h4>
+                                            <h4><?=$newsItem['title']?></h4>
                                             <div class="post-meta">
                                                 <span class="mr-2"><?=$newsItem['add_date']?></span>
                                             </div>
@@ -216,23 +130,27 @@
                     <!-- END sidebar-box -->
 
                     <div class="sidebar-box">
-                        <h3 class="heading">Categories</h3>
+                        <h3 class="heading">Новости по категориям</h3>
                         <ul class="categories">
-                            <li>
-                                <a href="#">Food <span>(12)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Travel <span>(22)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Lifestyle <span>(37)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Business <span>(42)</span></a>
-                            </li>
-                            <li>
-                                <a href="#">Adventure <span>(14)</span></a>
-                            </li>
+                            <?php foreach ($newsCountByCategories as $category):?>
+                                <li>
+                                    <a href="<?=$category['category_id']?>"><?=$category['category']?> <span>(<?=$category['count']?>)</span></a>
+                                </li>
+                            <?php endforeach;?>
+                        </ul>
+                    </div>
+                    <!-- END sidebar-box -->
+
+                    <div class="sidebar-box">
+                        <h3 class="heading">Новости по авторам</h3>
+                        <ul class="categories">
+                            <?php foreach ($newsCountByAuthors as $author):?>
+                                <li>
+                                    <a href="<?=$author['author_id']?>">
+                                        <?=$author['first_name'].' '.$author['last_name']?> <span>(<?=$author['count']?>)</span>
+                                    </a>
+                                </li>
+                            <?php endforeach;?>
                         </ul>
                     </div>
                     <!-- END sidebar-box -->
