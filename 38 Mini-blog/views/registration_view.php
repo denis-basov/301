@@ -10,7 +10,7 @@
 
     <div class="row">
         <div class="col-md-12 mb-5">
-            <form action="" method="POST" enctype="multipart/form-data" class="p-5 bg-white">
+            <form method="POST" enctype="multipart/form-data" class="p-5 bg-white">
 
                 <div class="row form-group">
                     <div class="col-md-6 mb-3 mb-md-0">
@@ -40,11 +40,14 @@
                 <div class="row form-group">
                     <div class="col-md-6">
                         <label class="text-black">Пароль</label>
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" id="reg-password-1" name="password" class="form-control">
+                        <button class="show-reg-password">Показать пароль</button>
                     </div>
                     <div class="col-md-6">
                         <label class="text-black">Подтверждение пароля</label>
-                        <input type="password" class="form-control">
+                        <input type="password" id="reg-password-2" class="form-control">
+                        <button class="show-reg-password">Показать пароль</button>
+                        <span class="error" id="reg-password-error"></span>
                     </div>
                 </div>
 

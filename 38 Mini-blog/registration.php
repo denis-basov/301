@@ -1,7 +1,24 @@
 <?php
 // контроллер страницы регистрации клиентов
+
+require 'core/SignUp.php';// класс для проверки данных
+
 $title = "Регистрация";
 
 
-require 'views/registration_view.php';
+if($_SERVER['REQUEST_METHOD'] === 'POST'){// если форма отправлена
+    // проверяем данные
+    $data = SignUp::validateForm();
+
+    // если ошибки есть
+        // показываем форму снова
+    // если ошибок нет
+        // сохраняем данные
+
+}else{// если страница загружена впервые
+    // отображаем форму
+    require 'views/registration_view.php';
+}
+
+
 
