@@ -1,6 +1,7 @@
 <?php
 // контроллер страницы регистрации клиентов
 
+require 'models/Users.php'; // класс для работы с табл users
 require 'core/SignUp.php';// класс для проверки данных
 
 $title = "Регистрация";
@@ -8,12 +9,17 @@ $title = "Регистрация";
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){// если форма отправлена
     // проверяем данные
-    $data = SignUp::validateForm();
+    list($errors, $input) = SignUp::validateForm();
+    print_r($errors); print_r($input);
 
-    // если ошибки есть
+
+    if($errors){ // если ошибки есть
         // показываем форму снова
-    // если ошибок нет
+        require 'views/registration_view.php';
+    }else{ // если ошибок нет
         // сохраняем данные
+        SignUp::processForm($input);
+    }
 
 }else{// если страница загружена впервые
     // отображаем форму
