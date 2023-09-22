@@ -186,10 +186,18 @@ class SignUp
 
         $input['password'] = password_hash($input['password'], PASSWORD_DEFAULT);// шифруем пароль
 
-        // сохранение данных о новом пользователе в БД
-        Users::addNewUser($input);
+        // сохранение данных о новом пользователе в БД и получаем его ID
+        $input['userId'] = Users::addNewUser($input);
 
         // начинаем сессию и записываем в нее данные пользователя
+        session_start();
+        $_SESSION['userId'] = $input['userId'];
+        $_SESSION['validUser'] = $input['login'];
+        $_SESSION['firstName'] = $input['firstName'];
+
+        // перенаправляю на главную
+        header('Location: /');
+
     }
 
 

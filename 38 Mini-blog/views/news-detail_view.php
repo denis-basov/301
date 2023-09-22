@@ -59,20 +59,27 @@
                         </ul>
                         <!-- END comment-list -->
 
-                        <div class="comment-form-wrap pt-5">
-                            <h3 class="mb-5">Добавить комментарий</h3>
+                        <!-- если клиент авторизован, показываем форму для добавления комментария  -->
+                        <?php if(isset($_SESSION['validUser'])):?>
+                            <div class="comment-form-wrap pt-5">
+                                <h3 class="mb-5">Добавить комментарий</h3>
 
-                            <form action="#" method="POST" class="p-5 bg-light">
-                                <div class="form-group">
-                                    <label for="message">Текст комментария:</label>
-                                    <textarea name="comment" id="message" cols="30" rows="10" class="form-control"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" value="Добавить" class="btn btn-primary" />
-                                </div>
-                            </form>
+                                <form method="POST" class="p-5 bg-light">
+                                    <div class="form-group">
+                                        <label for="message">Текст комментария:</label>
+                                        <textarea name="comment" id="message" cols="30" rows="10" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Добавить" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                            </div>
+                        <?php else:?>
+                            <div class="comment-form-wrap pt-5">
+                                <h3 class="mb-5">Для добавления комментария <a href="registration.php">зарегистрируйтесь</a></h3>
+                            </div>
+                        <?php endif;?>
 
-                        </div>
                     </div>
                 </div>
 

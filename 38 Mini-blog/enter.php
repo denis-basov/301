@@ -1,5 +1,56 @@
 <?php
 // контроллер страницы входа
+require 'models/Users.php'; // класс для работы с табл users
+require 'core/SignIn.php';
+
+$title = "Вход";
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+    // проверяем данные
+    list($errors, $input) = SignIn::validateForm();
+    print_r($errors);
+    print_r($input);
+
+    if($errors){
+        require 'views/enter_view.php';
+    }else{
+        SignIn::processForm($input);
+    }
+
+}else{
+    require 'views/enter_view.php';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -24,11 +75,11 @@ i - флаг, игнорирование регистра
 . - любой символ
 */
 
-$str = 'test@test.rr';
-$regExp = '/^.+@.+\..+$/';
-
-if(preg_match($regExp, $str)){
-    echo 'Строка соответствует регулярному выражению';
-}else{
-    echo 'Строка НЕ соответствует регулярному выражению';
-}
+//$str = 'test@test.rr';
+//$regExp = '/^.+@.+\..+$/';
+//
+//if(preg_match($regExp, $str)){
+//    echo 'Строка соответствует регулярному выражению';
+//}else{
+//    echo 'Строка НЕ соответствует регулярному выражению';
+//}

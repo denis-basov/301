@@ -1,3 +1,6 @@
+<?php
+session_start();
+print_r($_SESSION)?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,8 +56,17 @@
                             <li><a href="news_js.php">Новости JS</a></li>
                             <li><a href="category.html">Entertainment</a></li>
                             <li><a href="category.html">Travel</a></li>
-                            <li><a href="registration.php">Регистрация</a></li>
-                            <li><a href="enter.php">Вход</a></li>
+
+                            <!-- если клиент авторизован, показываем приветствие -->
+                            <?php if( isset($_SESSION['validUser']) ):?>
+                                <li><a href="cabinet.php">Привет, <?=$_SESSION['firstName']?></a></li>
+                                <li><a href="core/exit.php">Выход</a></li>
+                            <?php else: ?>
+                                <!-- если клиент НЕ авторизован, показываем ссылки для авторизации -->
+                                <li><a href="registration.php">Регистрация</a></li>
+                                <li><a href="enter.php">Вход</a></li>
+                            <?php endif;?>
+
                             <li class="d-none d-lg-inline-block">
                                 <a href="#" class="js-search-toggle"><span class="icon-search"></span></a>
                             </li>

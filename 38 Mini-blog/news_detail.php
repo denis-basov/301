@@ -5,6 +5,7 @@ require 'models/News.php';
 require 'models/Comments.php';
 
 $newsId = (int)$_GET['newsId'];// получаем ID из массива GET
+echo "<p>ID новости: $newsId</p>";
 $limit = 3; // количество новостей в боковой панели
 
 /**
