@@ -52,7 +52,7 @@
                                         <h3><?=$comment['first_name'].' '.$comment['last_name']?></h3>
                                     </a>
                                     <div class="meta"><?=$comment['add_date']?></div>
-                                    <p><?=$comment['comment']?></p>
+                                    <p><?=str_replace("\r\n", "</p><p>", $comment['comment'])?></p>
                                 </div>
                             </li>
                             <?php endforeach;?>
@@ -67,7 +67,9 @@
                                 <form method="POST" class="p-5 bg-light">
                                     <div class="form-group">
                                         <label for="message">Текст комментария:</label>
-                                        <textarea name="comment" id="message" cols="30" rows="10" class="form-control"></textarea>
+                                        <textarea name="comment" id="message" cols="30" rows="10" class="form-control"
+                                                  <?php if(isset($autofocus)) echo 'autofocus'?> ></textarea>
+                                        <span class="error"><?=$commentError ?? ''?></span>
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" value="Добавить" class="btn btn-primary" />

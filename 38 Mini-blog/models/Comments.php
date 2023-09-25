@@ -19,4 +19,16 @@ class Comments
         $statement->execute([$newsId]);
         return $statement->fetchAll();
     }
+
+    /**
+     * метод для добавление нового комментария к новости
+     */
+    public static function addNewCommentToNewsItem($comment, $newsId, $userId){
+        $pdo = DBConnect::getConnection();
+
+        $query = "INSERT INTO comments(comment, news_id, user_id)
+                    VALUES(?,?,?);";
+        $statement = $pdo->prepare($query);
+        $statement->execute([$comment, $newsId, $userId]);
+    }
 }
