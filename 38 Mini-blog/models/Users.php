@@ -92,4 +92,18 @@ class Users
         $statement->execute([$userId]);
         return $statement->fetch();
     }
+
+    /**
+     * метод для обновления логина
+     */
+    public static function updateLogin($login, $userId){
+        $pdo = DBConnect::getConnection();
+
+        $query = "UPDATE users
+                    SET login = ?
+                    WHERE id = ?";
+        $statement = $pdo->prepare($query);
+        $statement->execute([$login, $userId]);
+        $_SESSION['validUser'] = $login;
+    }
 }

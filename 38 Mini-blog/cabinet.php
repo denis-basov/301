@@ -14,8 +14,18 @@ $userInfo = Users::getUserInfo((int)$_SESSION['userId']);
 
 // получаем данные о комментариях пользователя
 $userComments = Comments::getCommentsByUserId((int)$_SESSION['userId']);
-print_r($userComments);
 $countUserComments = count($userComments);
+
+// обработка формы изменения логина
+// name="action" value="Обновить логин"
+if(isset($_POST['action']) && $_POST['action'] === 'Обновить логин'){
+    print_r($_POST);
+    $login = htmlspecialchars(trim($_POST['newLogin']));
+
+    Users::updateLogin($login, (int)$_SESSION['userId']);
+
+    header('Location: cabinet.php');
+}
 
 require 'views/cabinet_view.php';
 
