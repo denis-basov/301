@@ -9,8 +9,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
     // проверяем данные
     list($errors, $input) = SignIn::validateForm();
-    print_r($errors);
-    print_r($input);
 
     if($errors){
         require 'views/enter_view.php';

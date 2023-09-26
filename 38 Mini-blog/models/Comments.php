@@ -14,6 +14,7 @@ class Comments
                     FROM comments, users
                     WHERE user_id = users.id
                     AND news_id = ?
+                    AND approved = 1
                     ORDER BY comments.add_date DESC;";
         $statement = $pdo->prepare($query);
         $statement->execute([$newsId]);
@@ -30,5 +31,20 @@ class Comments
                     VALUES(?,?,?);";
         $statement = $pdo->prepare($query);
         $statement->execute([$comment, $newsId, $userId]);
+    }
+
+    /**
+     * метод для получения комментариев по ID пользователя
+     */
+    public static function getCommentsByUserId($userId){
+        $pdo = DBConnect::getConnection();
+
+        $query = "SELECT comment, news_id, comments.add_date, title AS newsTitle
+                    FROM comments, news
+                    WHERE news_id = news.id
+                    AND user_id = ?";
+        $statement = $pdo->prepare($query);
+        $statement->execute([$userId]);
+        return $statement->fetchAll();
     }
 }

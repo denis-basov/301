@@ -78,4 +78,18 @@ class Users
 
         return $statement->fetch();
     }
+
+    /**
+     * метод для получения данных о пользователе для отображения в лк
+     */
+    public static function getUserInfo($userId){
+        $pdo = DBConnect::getConnection();
+
+        $query  = "SELECT id, login, first_name, last_name, email, password, image, add_date, update_date
+                    FROM users
+                    WHERE id = ?;";
+        $statement = $pdo->prepare($query);
+        $statement->execute([$userId]);
+        return $statement->fetch();
+    }
 }

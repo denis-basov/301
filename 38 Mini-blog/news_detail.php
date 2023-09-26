@@ -30,8 +30,6 @@ $commentsCount = count($comments);// получаем количество ко�
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){// если отправлена форма с комментарием
     session_start();
-    echo "<h1>ID новости: $newsId. ID пользователя: $_SESSION[userId]. Комментарий: $_POST[comment]</h1>";
-
     $autofocus = true;
     $comment = htmlspecialchars(trim($_POST['comment']));
 
@@ -39,10 +37,8 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){// если отправлена фо�
         // выводим ошибку
         $commentError = 'Введите текст комментария';
     }else{
-
         // добавляем комментарий в таблицу
         Comments::addNewCommentToNewsItem($comment, $newsId, $_SESSION['userId']);
-
         header("Location: news_detail.php?newsId=$newsId");
     }
 }

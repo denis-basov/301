@@ -7,3 +7,11 @@
     color: red;
     font-weight: bold;
 }
+.lk-user-info{
+    font-size: 1.5rem;
+}
+
+.lk-user-info p span{
+    color: brown;
+    font-weight: 500;
+}
